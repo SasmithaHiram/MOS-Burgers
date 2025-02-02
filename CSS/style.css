@@ -11,14 +11,14 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    /* background-image: url(/Assets/Login.jpg);
+    background-image: url(/Assets/Login.jpg);
     background-size: cover;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
 }
 
 .login-container {
     width: 420px;
-    background-color: black;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgb(0, 0, 0, 0.1);
     overflow: hidden;
