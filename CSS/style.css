@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    outline: none;
+}
+
+body {
+    font-family: "Poppins";
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* background-image: url(/Assets/Login.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+.login-container {
+    width: 420px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-header {
+    color: orange;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.login-details {
+    max-height: 500px;
+    max-width: 800px;
+    flex: 1;
+    overflow: auto;
+    background-color: white;
+}
+
+.login-username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.username {
+    height: 40px;
+    width: 350px;
+    font-size: 15px;
+    border: 3px solid orange;
+    border-radius: 5px;
+}
+
+.login-password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password {
+    height: 40px;
+    width: 350px;
+    font-size: 15px;
+    border: 3px solid orange;
+    border-radius: 5px;
+
+}
+
+.login-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.login {
+    height: 40px;
+    width: 350px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: orange;
+    color: white;
+}
+
+.login:hover {
+    background-color: none;
+}
