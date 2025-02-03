@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    outline: none;
+}
+
+body {
+    font-family: "Poppins";
+    height: 100vh;
+}
+
+.store-management-title {
+    color: #FF6B35;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item-code {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#code {
+    height: 30px;
+    width: 350px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.item-name {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#name {
+    height: 30px;
+    width: 350px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+
+.item-price {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#price {
+    height: 30px;
+    width: 350px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+
+.item-description {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#description {
+    height: 30px;
+    width: 350px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#add-button {
+    height: 50px;
+    width: 150px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #FF6B35;
+    color: white;
+    border: none;
+}
+
+.text-item-list {
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#item-table {
+    max-width: 1000px;
+}
+
+.add-item-table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
