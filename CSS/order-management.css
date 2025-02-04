@@ -9,7 +9,7 @@
 body {
     font-family: "Poppins";
     height: 100vh;
-    
+
 }
 
 .header-container {
@@ -26,17 +26,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
 }
 
-.buttons {
-}
-
-button {
-    height: 40px;
+.buttons button {
+    height: 50px;
     width: 150px;
     font-size: 18px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 30px;
     background-color: #FF6B35;
     color: white;
 
@@ -69,4 +67,3 @@ button {
     font-size: 22px;
     letter-spacing: 5px;
 }
-
