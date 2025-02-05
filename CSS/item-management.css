@@ -59,15 +59,42 @@ body {
     border-radius: 5px;
 }
 
-
-.item-description {
+.item-discount {
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 20px;
 }
 
-#description {
+#discount {
+    height: 30px;
+    width: 350px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.item-image {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#image {
+    height: 30px;
+    width: 350px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.item-category {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.category {
     height: 30px;
     width: 350px;
     font-size: 15px;
