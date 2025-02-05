@@ -14,4 +14,5 @@ function loginPOS() {
     } else {
         alert("Invalid username or password");
     }
+
 }
