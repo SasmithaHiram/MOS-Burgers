@@ -8,7 +8,7 @@ function loginPOS() {
     if (userUsername === "" || userPassword === "") {
         alert("Please fill  in both fields.")
     } else if (userUsername === adminUsername && userPassword === adminPassword) {
-        alert("Login Successful! Welcome back!");
+        // alert("Login Successful! Welcome back!");
         window.location.href = `dashboard.html`;
     } else {
         alert("Invalid username or password");

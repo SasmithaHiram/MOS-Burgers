@@ -1,4 +1,5 @@
 let customers = [];
+clearCustomer();
 
 function addCustomer() {
     let customerId = document.getElementById("id").value;
@@ -13,6 +14,7 @@ function addCustomer() {
     customers.push({ customerId, customerName, customerEmail, customerPhoneNumber });
     console.log(customers);
     loadCustomersTable();
+    clearCustomer();
 
 }
 
@@ -54,5 +56,13 @@ function editCustomer(index) {
 function deleteCustomer(index) {
     customers.splice(index, 1);
     loadCustomersTable();
+    clearCustomer();
+}
+
+function clearCustomer() {
+    let customerId = document.getElementById("id").value = "";
+    let customerName = document.getElementById("name").value = "";
+    let customerEmail = document.getElementById("email").value = "";
+    let customerPhoneNumber = document.getElementById("phone-number").value = "";
 
 }

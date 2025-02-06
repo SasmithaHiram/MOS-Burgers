@@ -61,6 +61,7 @@ const menu = {
 };
 
 loadItemTable();
+clearItem();
 
 function addBurger() {
     let id = document.getElementById("code").value;
@@ -92,6 +93,7 @@ function addBurger() {
     }
 
     loadItemTable();
+    clearItem();
 
 }
 
@@ -135,5 +137,16 @@ function editItems(category, index) {
 function deleteItems(category, index) {
     menu[category].splice(index, 1);
     loadItemTable();
+    clearItem();
+
+}
+
+function clearItem() {
+    let id = document.getElementById("code").value = "";
+    let name = document.getElementById("name").value = "";
+    let price = document.getElementById("price").value = "";
+    // let discount = document.getElementById("discount").value;
+    let itemImage = document.getElementById("image").files[0];
+    let image = itemImage ? URL.createObjectURL(itemImage) : "";
 
 }
