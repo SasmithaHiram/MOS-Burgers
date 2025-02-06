@@ -29,8 +29,8 @@ function loadCustomersTable() {
       <td>${customer.customerEmail}</td>
       <td>${customer.customerPhoneNumber}</td>
       <td>
-      <button class="btn-edit" onclick="editCustomer(${index})">Edit</button>
-      <button class="btn-delete" onclick="deleteCustomer(${index})">Delete</button>
+      <button class="btn-edit btn btn-primary" onclick="editCustomer(${index})">Edit</button>
+      <button class="btn-delete btn btn-danger" onclick="deleteCustomer(${index})">Delete</button>
     </td>`;
 
         customerTable.appendChild(row);

@@ -1,6 +1,5 @@
-const adminUsername = "Sasmitha";
-const adminPassword = "123";
-
+const adminUsername = "Cashier";
+const adminPassword = "12345678";
 
 function loginPOS() {
     let userUsername = document.getElementById("username").value;
