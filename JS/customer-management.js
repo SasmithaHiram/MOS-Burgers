@@ -27,32 +27,43 @@ function addCustomer() {
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
-   
-    // loadCustomersTable();
-     clearCustomer();
+
+    clearCustomer();
 }
 
-// function loadCustomersTable(data) {
-//     const customerTable = document.getElementById("table-body");
-//     customerTable.innerHTML = "";
+loadCustomersTable();
 
-//     customers.forEach((customer, index) => {
-//         const row = document.createElement("tr");
+function loadCustomersTable() {
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+    };
 
-//         row.innerHTML = `
-//         <th scope="row">${customer.customerId}</th>
-//       <td>${customer.customerName}</td>
-//       <td>${customer.customerEmail}</td>
-//       <td>${customer.customerPhoneNumber}</td>
-//       <td>
-//       <button class="btn-edit btn btn-primary" onclick="editCustomer(${index})">Edit</button>
-//       <button class="btn-delete btn btn-danger" onclick="deleteCustomer(${index})">Delete</button>
-//     </td>`;
+    fetch("http://localhost:8080/customer/get-all-customers", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+            const customerTable = document.getElementById("table-body");
+            customerTable.innerHTML = "";
 
-//         customerTable.appendChild(row);
-//     });
+            result.forEach((customer) => {
+                const row = document.createElement("tr");
 
-// }
+                row.innerHTML = `
+        <th scope="row">${customer.id}</th>
+      <td>${customer.name}</td>
+      <td>${customer.email}</td>
+      <td>${customer.phoneNumber}</td>
+      <td>
+       <button class="btn-edit btn btn-primary" onclick="editCustomer(${customer.id})">Edit</button>
+    <button class="btn-delete btn btn-danger" onclick="deleteCustomer(${customer.id})">Delete</button>
+     </td>`;
+
+                customerTable.appendChild(row);
+
+            });
+        })
+        .catch((error) => console.error(error));
+}
 
 // function editCustomer(index) {
 //     const customer = customers[index];
