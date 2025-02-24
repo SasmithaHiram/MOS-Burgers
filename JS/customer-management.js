@@ -60,7 +60,7 @@ function loadCustomersTable() {
       <td>${customer.phoneNumber}</td>
       <td>
        <button class="btn-edit btn btn-primary" onclick="editCustomer('${customer.id}', '${customer.name}', '${customer.email}', '${customer.phoneNumber}')">Edit</button>
-    <button class="btn-delete btn btn-danger" onclick="deleteCustomer(${customer})">Delete</button>
+    <button class="btn-delete btn btn-danger" onclick="deleteCustomer('${customer.id}', '${customer.name}', '${customer.email}', '${customer.phoneNumber}')">Delete</button>
      </td>`;
 
         customerTable.appendChild(row);
@@ -73,6 +73,7 @@ let currentCustomerId = null;
 
 function editCustomer(id, name, email, phoneNumber) {
   currentCustomerId = id;
+
   document.getElementById("name").value = name;
   document.getElementById("email").value = email;
   document.getElementById("phone-number").value = phoneNumber;
@@ -107,19 +108,41 @@ function updateCustomer() {
 
   fetch("http://localhost:8080/customer/update-customer", requestOptions)
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((result) => {
+      clearCustomer();
+      loadCustomersTable();
+    })
     .catch((error) => console.error(error));
 }
 
-// function deleteCustomer(index) {
-//     customers.splice(index, 1);
-//     loadCustomersTable();
-//     clearCustomer();
-// }
+function deleteCustomer(id, name, email, phoneNumber) {
+  currentCustomerId = id;
+
+  document.getElementById("name").value = name;
+  document.getElementById("email").value = email;
+  document.getElementById("phone-number").value = phoneNumber;
+
+  document.getElementById("add-button").innerHTML = "Delete";
+  document.getElementById("add-button").setAttribute("onclick", "deleteCustomerById()");
+}
+
+function deleteCustomerById() {
+  const requestOptions = {
+    method: "DELETE",
+    redirect: "follow"
+  };
+  
+  fetch(`http://localhost:8080/customer/delete-customer/${currentCustomerId}`, requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+      clearCustomer();
+      loadCustomersTable();
+    })
+    .catch((error) => console.error(error));
+}
 
 function clearCustomer() {
   let customerName = (document.getElementById("name").value = "");
   let customerEmail = (document.getElementById("email").value = "");
-  let customerPhoneNumber = (document.getElementById("phone-number").value =
-    "");
+  let customerPhoneNumber = (document.getElementById("phone-number").value = "");
 }
