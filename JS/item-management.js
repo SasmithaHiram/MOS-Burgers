@@ -1,4 +1,3 @@
-
 loadItemTable();
 clearItem();
 
@@ -63,7 +62,7 @@ function loadItemTable() {
                 <td>${item.price}</td>
                  <td><img src="${item.image}" alt="image" height="100" width="100"></td>
                 <td>
-                 <button class="btn-edit btn btn-primary" onclick="editItems('${item.code}', '${item.name}', '${item.price}', '${item.image}')">Edit</button>
+                 <button class="btn-edit btn btn-primary" onclick="editItems('${item.code}', '${item.name}', '${item.price}')">Edit</button>
                  <button class="btn-delete btn btn-danger" onclick="deleteItems('${item.code}')">Delete</button>
               </td>`;
         burgerItemList.appendChild(row);
@@ -72,16 +71,47 @@ function loadItemTable() {
     .catch((error) => console.error(error));
 }
 
-function editItems(category, index) {
-  const item = menu[category][index];
+let currentItemCode = null;
 
-  document.getElementById("code").value = item.id;
-  document.getElementById("name").value = item.name;
-  document.getElementById("price").value = item.price;
+function editItems(code, name, price, image) {
+  currentItemCode = code;
+  document.getElementById("name").value = name;
+  document.getElementById("price").value = price;
   document.getElementById("image").value = "";
 
-  menu[category].splice(index, 1);
-  loadItemTable();
+  document.getElementById("add-button").innerHTML = "Update";
+  document.getElementById("add-button").setAttribute("onclick", "updateItem()");
+}
+
+function updateItem() {
+  let itemName = document.getElementById("name").value;
+  let itemPrice = document.getElementById("price").value;
+  let itemImage = document.getElementById("image").files[0];
+  let image = itemImage ? URL.createObjectURL(itemImage) : "";
+  let category = document.getElementById("select").value;
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  const raw = JSON.stringify({
+    code: currentItemCode,
+    name: itemName,
+    price: itemPrice,
+    image: image,
+    category: category,
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+
+  fetch("http://localhost:8080/item/update-item", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
 }
 
 // function deleteItems(category, index) {
