@@ -8,9 +8,8 @@ function addProduct() {
   // let discount = document.getElementById("discount").value;
   let itemImage = document.getElementById("image").files[0];
   let image = itemImage ? URL.createObjectURL(itemImage) : "";
-  
 
-  if (name === "" || price === "" || image === "") {
+  if (name === "" || price === "" || image === "" || category === "Select Category") {
     alert("All fields are required!");
     return;
   }
@@ -34,11 +33,12 @@ function addProduct() {
 
   fetch("http://localhost:8080/product/add-product", requestOptions)
     .then((response) => response.json())
-    .then((result) => console.log(result))
+    .then((result) => {
+      console.log(result);
+      clearItem();
+      loadItemTable();
+    })
     .catch((error) => console.error(error));
-
-  loadItemTable();
-  clearItem();
 }
 
 function loadItemTable() {
@@ -50,7 +50,7 @@ function loadItemTable() {
     redirect: "follow",
   };
 
-  fetch("http://localhost:8080/item/get-all-items", requestOptions)
+  fetch("http://localhost:8080/product/get-all-product", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
@@ -58,10 +58,10 @@ function loadItemTable() {
       result.forEach((item) => {
         const row = document.createElement("tr");
 
-        row.innerHTML = `<th scope="row">${item.code}</th>
-                <td>${item.name}</td>
-                <td>${item.price}</td>
-                 <td><img src="${item.image}" alt="image" height="100" width="100"></td>
+        row.innerHTML = `<th scope="row" scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">${item.code}</th>
+                <td class="px-6 py-4">${item.name}</td>
+                <td class="px-6 py-4">${item.price}</td>
+                 <td class="px-6 py-4"><img src="${item.image}" alt="image" height="100" width="100"></td>
                 <td>
                  <button class="btn-edit btn btn-primary" onclick="editItems('${item.code}', '${item.name}', '${item.price}')">Edit</button>
                  <button class="btn-delete btn btn-danger" onclick="deleteItems('${item.code}', '${item.name}', '${item.price}')">Delete</button>
@@ -90,7 +90,6 @@ function updateItem() {
   let image = itemImage ? URL.createObjectURL(itemImage) : "";
   let category = document.getElementById("select").value;
 
-
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -103,15 +102,19 @@ function updateItem() {
   });
 
   const requestOptions = {
-    method: "POST",
+    method: "PUT",
     headers: myHeaders,
     body: raw,
     redirect: "follow",
   };
 
-  fetch("http://localhost:8080/item/update-item", requestOptions)
+  fetch("http://localhost:8080/product/update-product", requestOptions)
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((result) => {
+      console.log(result);
+      loadItemTable();
+      clearItem();
+    })
     .catch((error) => console.error(error));
 }
 
@@ -132,9 +135,16 @@ function deleteItemById() {
     redirect: "follow",
   };
 
-  fetch(`http://localhost:8080/item/delete-item/${currentItemCode}`, requestOptions)
+  fetch(
+    `http://localhost:8080/product/delete-product/${currentItemCode}`,
+    requestOptions
+  )
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((result) => {
+      console.log(result);
+      loadItemTable();
+      clearItem();
+    })
     .catch((error) => console.error(error));
 }
 

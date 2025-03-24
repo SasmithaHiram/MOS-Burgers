@@ -1,151 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Management</title>
-    <link rel="stylesheet" href="CSS/item-management.css">
+    <link rel="stylesheet" href="CSS/item-management.css" />
     <link
-    href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
-    rel="stylesheet"
-  />
-</head>
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-
+  <body>
     <div class="w-4/5 max-w-7xl min-w-[300px] mx-auto p-5">
-        <div id="text-add-customer">
-          <label class="block mb-2 text-2xl font-bold dark:text-white"
-            >Add Product</label
-          >
-        </div> 
+      <div id="text-add-customer">
+        <label class="block mb-2 text-2xl font-bold dark:text-white"
+          >Add Product</label
+        >
+      </div>
 
-        <div class="item-category text-center" id="category">
-            <select id="select">
-                <option>Select Category</option>
-                <option>BURGER</option>
-                <option>Submarines</option>
-                <option>Fries</option>
-                <option>Pasta</option>
-                <option>Chicken</option>
-                <option>Beverages</option>
-            </select>
-        </div>
-  
-        <div>
-          <div class="grid gap-6 mb-6 md:grid-cols-2">
-            <div>
-              <label
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Name</label
-              >
-              <input
-                type="text"
-                id="name"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter Name"
-                required
-              />
-            </div>
-            <div>
-              <label
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Price</label
-              >
-              <input
-                type="tel"
-                id="price"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter Price"
-                required
-              />
-            </div>
-            
+      <div class="item-category" id="category">
+        <select id="select">
+          <option>Select Category</option>
+          <option>BURGER</option>
+          <option>SUBMARINE</option>
+          <option>FRIES</option>
+          <option>PASTA</option>
+          <option>CHICKEN</option>
+          <option>BEVERAGE</option>
+        </select>
+      </div>
+
+      <div>
+        <div class="grid gap-6 mb-6 md:grid-cols-2">
+          <div>
+            <label
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter Name"
+              required
+            />
           </div>
-
-
-          <div class="item-image">
-            
-<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="multiple_files">Upload multiple files</label>
-<input id="image" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="multiple_files" type="file" multiple>
-
-            <!-- <input id="image" type="file" accept="image/*"> -->
+          <div>
+            <label
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Price</label
+            >
+            <input
+              type="tel"
+              id="price"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter Price"
+              required
+            />
+          </div>
         </div>
 
-        
-          <button
-            type="submit"
-            id="add-button"
-            onclick="addProduct()"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-6"
+        <div class="item-image">
+          <label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            for="multiple_files"
+            >Upload multiple files</label
           >
-            Add Product
-          </button>
+          <input
+            id="image"
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            id="multiple_files"
+            type="file"
+            multiple
+          />
         </div>
-  
 
+        <button
+          type="submit"
+          id="add-button"
+          onclick="addProduct()"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-6"
+        >
+          Add Product
+        </button>
+      </div>
 
-
-
-
-
-
-
-
-    <!-- <div class="store-management-container">
-        <header class="store-management-title">
-            <h1>Item Management</h1>
-        </header>
-        <div class="details">
-            <div class="item-name">
-                <input id="name" type="text" placeholder="Item Name">
-            </div>
-            <div class="item-price">
-                <input id="price" type="text" placeholder="Item Price">
-            </div>
-            <div class="item-image">
-                <input id="image" type="file" accept="image/*">
-            </div>
-            <div class="item-category" id="category">
-                <select id="select">
-                    <option>Select Category</option>
-                    <option>Burgers</option>
-                    <option>Submarines</option>
-                    <option>Fries</option>
-                    <option>Pasta</option>
-                    <option>Chicken</option>
-                    <option>Beverages</option>
-                </select>
-            </div>
-            <div class="button">
-                <button id="add-button" onclick="addBurger()">Add Item</button>
-            </div>
-        </div>
-        <div class="text-item-list">
-            <h1>Item List</h1>
-        </div>
-        <div class="add-item-table">
-            <table class="table table-bordered" id="item-table">
-                <thead>
-                    <tr>
-                        <th scope="col">Code</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Edit/Delete</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                </tbody>
-            </table>
-        </div>
+      <div
+        class="add-item-table relative overflow-x-auto shadow-md sm:rounded-lg mt-6"
+      >
+        <table
+          class="table table-bordered w-full text-sm text-left rtl:text-right text-blue-100 dark:text-blue-100"
+          id="item-table"
+        >
+          <thead
+            class="text-xs text-white uppercase bg-blue-600 dark:text-white"
+          >
+            <tr>
+              <th scope="col" class="px-6 py-3">Code</th>
+              <th scope="col" class="px-6 py-3">Name</th>
+              <th scope="col" class="px-6 py-3">Price</th>
+              <th scope="col" class="px-6 py-3">Image</th>
+              <th scope="col" class="px-6 py-3">Action</th>
+            </tr>
+          </thead>
+          <tbody
+            id="table-body"
+            class="bg-blue-500 border-b border-blue-400"
+          ></tbody>
+        </table>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script> -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <script src="JS/product-management.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-</body>
-
+  </body>
 </html>
