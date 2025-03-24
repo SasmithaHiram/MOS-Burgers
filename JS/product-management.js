@@ -1,13 +1,14 @@
 loadItemTable();
 clearItem();
 
-function addBurger() {
+function addProduct() {
+  let category = document.getElementById("select").value;
   let name = document.getElementById("name").value;
   let price = document.getElementById("price").value;
   // let discount = document.getElementById("discount").value;
   let itemImage = document.getElementById("image").files[0];
   let image = itemImage ? URL.createObjectURL(itemImage) : "";
-  let category = document.getElementById("select").value;
+  
 
   if (name === "" || price === "" || image === "") {
     alert("All fields are required!");
@@ -31,7 +32,7 @@ function addBurger() {
     redirect: "follow",
   };
 
-  fetch("http://localhost:8080/item/add-item", requestOptions)
+  fetch("http://localhost:8080/product/add-product", requestOptions)
     .then((response) => response.json())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
