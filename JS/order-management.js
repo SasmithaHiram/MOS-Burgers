@@ -8,7 +8,7 @@ function loadAllMenu() {
         redirect: "follow"
       };
       
-      fetch("http://localhost:8080/item/get-all-items", requestOptions)
+      fetch("http://localhost:8080/product/get-all-product", requestOptions)
         .then((response) => response.json())
         .then((result) => {
             result.forEach(item => {
@@ -16,7 +16,7 @@ function loadAllMenu() {
         <div class="card shadow-lg w-100" style="max-width: 300px; height: 400px">
             <img id="itemImage1" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" src="${item.image}" alt="Menu Item">
             <div class="card-body text-center">
-                <h5 id="itemName1" class="card-id">${item.code}</h5>
+                <h5 id="itemName1" class="card-id">Product ID : ${item.code}</h5>
                 <h5 id="itemName2" class="card-name">${item.name}</h5>
                 <p id="itemPrice1" class="text-primary fw-bold fs-5">LKR ${item.price}</p>
                 <button class="btn btn-success add-to-cart" data-id="${item.id}" data-name="${item.name}" data-discount="${item.discount}" data-price="${item.price}" data-image="${item.image}">ADD TO CART</button>
@@ -28,23 +28,37 @@ function loadAllMenu() {
         .catch((error) => console.error(error));
 }
 
-// function loadBurgers() {
-//     menuTable.innerHTML = "";
-//     menu.burgers.forEach(burger => {
-//         menuTable.innerHTML += `<div class="col-md-3 mb-4">
-//     <div class="card shadow-lg w-100" style="max-width: 300px; height: 400px">
-//         <img id="itemImage1" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" src="${burger.image}" alt="Menu Item">
-//         <div class="card-body text-center">
-//             <h5 id="itemName1" class="card-id">${burger.id}</h5>
-//             <h5 id="itemName2" class="card-name">${burger.name}</h5>
-//             <p id="itemPrice1" class="text-primary fw-bold fs-5">LKR ${burger.price}</p>
-//             <button class="btn btn-success add-to-cart" data-id="${burger.id}" data-name="${burger.name}" data-discount="${burger.discount}" data-price="${burger.price}" data-image="${burger.image}">ADD TO CART</button>
-//         </div>
-//     </div>
-// </div>`
-//     });
+function loadSubmarines() {
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+      
+      fetch("http://localhost:8080/product/get-all-product", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+            const submarines = result.filter(item => item.category === "SUBMARINE");
 
-// }
+            const menuTable = document.getElementById("card");
+            menuTable.innerHTML = "";
+            submarines.forEach(submarine => {
+                menuTable.innerHTML += `<div class="col-md-3 mb-4">
+        <div class="card shadow-lg w-100" style="max-width: 300px; height: 400px">
+            <img id="itemImage1" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" src="${submarine.image}" alt="Menu Item">
+            <div class="card-body text-center">
+                <h5 id="itemName1" class="card-id">Product ID : ${submarine.code}</h5>
+                <h5 id="itemName2" class="card-name">${submarine.name}</h5>
+                <p id="itemPrice1" class="text-primary fw-bold fs-5">LKR ${submarine.price}</p>
+                <button class="btn btn-success add-to-cart" data-id="${submarine.id}" data-name="${submarine.name}" data-discount="${submarine.discount}" data-price="${submarine.price}" data-image="${submarine.image}">ADD TO CART</button>
+            </div>
+        </div>
+    </div>`
+            });
+        })
+        .catch((error) => console.error(error));
+}
+
+
 
 // function loadSubmarines() {
 //     menuTable.innerHTML = "";
