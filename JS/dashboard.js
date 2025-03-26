@@ -1,11 +1,14 @@
 function itemManagement() {
-  window.location.href = `item-management.html`;
+    window.location.href = `item-management.html`;
+
 }
 
 function customerManagement() {
-  window.location.href = `customer-management.html`;
+    window.location.href = `customer-management.html`;
+
 }
 
 function orderManagement() {
-  window.location.href = `order-management.html`;
+    window.location.href = `order-management.html`;
+
 }

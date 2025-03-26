@@ -1,15 +1,18 @@
 loadItemTable();
 clearItem();
 
-function addProduct() {
-  let category = document.getElementById("select").value;
+function addBurger() {
   let name = document.getElementById("name").value;
   let price = document.getElementById("price").value;
-  // let discount = document.getElementById("discount").value;
   let itemImage = document.getElementById("image").files[0];
-  let image = itemImage ? URL.createObjectURL(itemImage) : "";
+  let category = document.getElementById("select").value;
 
-  if (name === "" || price === "" || image === "" || category === "Select Category") {
+  if (
+    name === "" ||
+    price === "" ||
+    !itemImage ||
+    category === "Select Category"
+  ) {
     alert("All fields are required!");
     return;
   }
@@ -33,12 +36,11 @@ function addProduct() {
 
   fetch("http://localhost:8080/product/add-product", requestOptions)
     .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      clearItem();
-      loadItemTable();
-    })
+    .then((result) => console.log(result))
     .catch((error) => console.error(error));
+
+  loadItemTable();
+  clearItem();
 }
 
 function loadItemTable() {
@@ -58,10 +60,10 @@ function loadItemTable() {
       result.forEach((item) => {
         const row = document.createElement("tr");
 
-        row.innerHTML = `<th scope="row" scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">${item.code}</th>
-                <td class="px-6 py-4">${item.name}</td>
-                <td class="px-6 py-4">${item.price}</td>
-                 <td class="px-6 py-4"><img src="${item.image}" alt="image" height="100" width="100"></td>
+        row.innerHTML = `<th scope="row">${item.code}</th>
+                <td>${item.name}</td>
+                <td>${item.price}</td>
+                 <td><img src="${item.image}" alt="image" height="100" width="100"></td>
                 <td>
                  <button class="btn-edit btn btn-primary" onclick="editItems('${item.code}', '${item.name}', '${item.price}')">Edit</button>
                  <button class="btn-delete btn btn-danger" onclick="deleteItems('${item.code}', '${item.name}', '${item.price}')">Delete</button>
@@ -110,11 +112,7 @@ function updateItem() {
 
   fetch("http://localhost:8080/product/update-product", requestOptions)
     .then((response) => response.text())
-    .then((result) => {
-      console.log(result);
-      loadItemTable();
-      clearItem();
-    })
+    .then((result) => console.log(result))
     .catch((error) => console.error(error));
 }
 
@@ -140,11 +138,7 @@ function deleteItemById() {
     requestOptions
   )
     .then((response) => response.text())
-    .then((result) => {
-      console.log(result);
-      loadItemTable();
-      clearItem();
-    })
+    .then((result) => console.log(result))
     .catch((error) => console.error(error));
 }
 
