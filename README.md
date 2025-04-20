@@ -1,7 +1,3 @@
-Here’s a rewritten version with a simpler and more concise approach:
-
----
-
 # Mos Burger POS System 🍔💻
 
 A POS system developed using **HTML**, **CSS**, **Bootstrap**, and **JavaScript** to manage products, customers, orders, and generate reports.
@@ -28,6 +24,6 @@ MIT License.
 
 1. Clone or download the repository.
    ```bash
-   git clone https://github.com/your-username/mos-burger-pos.git
+   https://github.com/SasmithaHiram/MOS-Burgers.git
    ```
 2. Open `index.html` in your browser.
